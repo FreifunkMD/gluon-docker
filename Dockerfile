@@ -1,7 +1,24 @@
 FROM gcc:7.2
 
-RUN apt-get update 
-RUN apt-get install -y git subversion python-pip python3-pip build-essential gawk unzip libncurses-dev  libz-dev  libssl-dev wget
+    # Update & install packages & cleanup afterwards
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
+    apt-get -y upgrade && \
+    apt-get -y install \
+        build-essential \
+        gawk \
+        git \
+        libncurses-dev \
+        libssl-dev \
+        libz-dev \
+        python-pip \
+        python3-pip \
+        subversion \
+        unzip \
+        wget && \
+    apt-get clean autoclean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN git clone git://github.com/freifunk-gluon/gluon.git 
 WORKDIR gluon
