@@ -34,7 +34,7 @@ The build needs up to 60 GB of hard disk space. If the docker environment cannot
         -v "$(pwd)/openwrt_build:/gluon/openwrt/build_dir" \
         ffmd-v2016.2.7
 
-This will create and bind the diretories `firmware` and `openwrt_build` in the current working directory to the containers output directories.
+This will create and bind the directories `firmware` and `openwrt_build` in the current working directory to the container's output directories.
 
 
 ### … in the Docker container
