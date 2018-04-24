@@ -1,6 +1,9 @@
 FROM gcc:7.2
 
-    # Update & install packages & cleanup afterwards
+ENV FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
+ENV FFMD_VERSION=tags/v0.38-beta.1
+
+# Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
     apt-get -y upgrade && \
@@ -28,9 +31,9 @@ RUN git checkout origin/v2016.2.x
 COPY buildOnly.sh buildOnly.sh
 
 
-RUN git clone https://github.com/FreifunkMD/site-ffmd.git site
+RUN git clone $FFMD_REPO site
 WORKDIR site
-RUN git checkout tags/v0.38-beta.1
+RUN git checkout $FFMD_VERSION
 
 WORKDIR /gluon
 RUN pwd
