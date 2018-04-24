@@ -28,7 +28,7 @@ RUN git checkout origin/v2016.2.x
 COPY buildOnly.sh buildOnly.sh
 
 
-RUN git clone https://github.com/johannwagner/site-ffmd.git site
+RUN git clone https://github.com/FreifunkMD/site-ffmd.git site
 WORKDIR site
 RUN git checkout tags/v0.38-beta.1
 
