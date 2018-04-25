@@ -2,6 +2,7 @@ FROM gcc:7.2
 
 ENV FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
 ENV FFMD_VERSION=tags/v0.38-beta.1
+ENV GLUON_VERSION=origin/v2016.2.x
 
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -25,7 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 RUN git clone git://github.com/freifunk-gluon/gluon.git 
 WORKDIR gluon
-RUN git checkout origin/v2016.2.x
+RUN git checkout $GLUON_VERSION
 
 # COPY profiles.mk /gluon/targets/ar71xx-generic/profiles.mk
 COPY buildOnly.sh buildOnly.sh
