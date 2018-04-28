@@ -1,7 +1,7 @@
 FROM gcc:7.2
 
 ENV FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
-ENV FFMD_VERSION=tags/v0.38-beta.1
+ENV FFMD_VERSION=tags/v0.38-beta.2
 ENV GLUON_VERSION=origin/v2016.2.x
 
 # Update & install packages & cleanup afterwards
