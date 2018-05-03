@@ -1,8 +1,14 @@
 FROM gcc:7.2
 
-ENV FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
-ENV FFMD_VERSION=tags/v0.38-beta.2
-ENV GLUON_VERSION=origin/v2016.2.x
+ARG FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
+ARG FFMD_VERSION=tags/v0.38-beta.2
+ARG GLUON_VERSION=origin/v2016.2.x
+
+ENV FFMD_REPO={$FFMD_REPO}
+ENV FFMD_VERSION={$FFMD_VERSION}
+ENV GLUON_VERSION={$GLUON_VERSION}
+
+
 
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
