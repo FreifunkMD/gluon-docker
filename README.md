@@ -18,6 +18,10 @@ Use the following commands on the host to create and run the docker image:
     docker build -t ffmd-v2016.2.7 .
     docker run -it --name ffmd ffmd-v2016.2.7
 
+The build process can be configured with build arguments:
+
+    docker build --build-arg FFMD_VERSION=tags/v0.38-beta.1 -t ffmd-v2016.2.7 .
+
 To restart the image once it has been stopped:
 
     docker start -i ffmd
