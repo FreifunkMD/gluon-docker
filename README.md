@@ -19,7 +19,13 @@ Use the following commands on the host to create and run the docker image:
     docker run -it --name ffmd ffmd-v2016.2.7
 
 to run arbitrary commands inside the container you can:
-   docker run ffmd-v2016.2.7 "make update && ./buildOnly.sh && echo BUILD SUCCESSFUL"
+
+	docker run ffmd-v2016.2.7 "make update && ./buildOnly.sh && echo BUILD SUCCESSFUL"
+
+The build process can be configured with build arguments:
+
+    docker build --build-arg FFMD_VERSION=tags/v0.38-beta.1 -t ffmd-v2016.2.7 .
+
 
 To restart the image once it has been stopped:
 
