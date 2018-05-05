@@ -43,5 +43,5 @@ RUN pwd
 
 ENV FORCE_UNSAFE_CONFIGURE=1
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash","-c"]
 # CMD ["./site/build.sh", "-v"] 
