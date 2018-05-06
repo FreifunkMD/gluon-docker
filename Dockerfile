@@ -2,6 +2,7 @@ FROM gcc:7.2
 
 ARG FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
 ARG FFMD_VERSION=tags/v0.38-beta.2
+ARG GLUON_REPO=git://github.com/freifunk-gluon/gluon.git
 ARG GLUON_VERSION=origin/v2016.2.x
 
 ENV FFMD_REPO={$FFMD_REPO}
@@ -30,7 +31,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone git://github.com/freifunk-gluon/gluon.git 
+RUN git clone $GLUON_REPO
 WORKDIR gluon
 RUN git checkout $GLUON_VERSION
 
