@@ -2,11 +2,12 @@
 
 Docker image to build firmware for the [Freifunk Magdeburg](http://md.freifunk.net) community.
 
+The build process is started automatically when the container is run. There is no need to manually run commands inside the container anymore.
+
 ## Shell trail
 
 This section shows the commands that are needed to run a build with the Docker image. Make sure you know what you are doing before hitting the Enter key.
 
-### … on the Docker host
 
 Clone the repository:
 
@@ -18,14 +19,19 @@ Use the following commands on the host to create and run the docker image:
     docker build -t ffmd-v2016.2.7 .
     docker run -it --name ffmd ffmd-v2016.2.7
 
-to run arbitrary commands inside the container you can:
-
-	docker run ffmd-v2016.2.7 "make update && ./buildOnly.sh && echo BUILD SUCCESSFUL"
+The container will automatically start the firmware build process.
 
 The build process can be configured with build arguments:
 
     docker build --build-arg FFMD_VERSION=tags/v0.38-beta.1 -t ffmd-v2016.2.7 .
 
+To start the container with an arbitrary command, you can:
+
+	docker run --name ffmd ffmd-v2016.2.7 "make update && ./buildOnly.sh && echo BUILD SUCCESSFUL"
+
+You can run a shell in an existing container with the following command:
+
+    docker exec -it ffmd /bin/bash
 
 To restart the image once it has been stopped:
 
@@ -44,11 +50,3 @@ The build needs up to 60 GB of hard disk space. If the docker environment cannot
         ffmd-v2016.2.7
 
 This will create and bind the directories `firmware` and `openwrt_build` in the current working directory to the container's output directories.
-
-
-### … in the Docker container
-
-Initialize and run the build with the following commands:
-
-    make update
-    site/build.sh
