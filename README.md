@@ -27,7 +27,7 @@ The build process can be configured with build arguments:
 
 To start the container with an arbitrary command, you can:
 
-	docker run --name ffmd ffmd-v2016.2.7 "/bin/bash"
+	docker run -it --name ffmd ffmd-v2016.2.7 "/bin/bash"
 
 You can run a shell in an existing container with the following command:
 
