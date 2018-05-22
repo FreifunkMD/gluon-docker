@@ -46,4 +46,5 @@ RUN pwd
 ENV FORCE_UNSAFE_CONFIGURE=1
 
 ENTRYPOINT ["/bin/bash","-c"]
-CMD ["cd /gluon && make update && for i in ar71xx-generic ar71xx-tiny; do GLUON_TARGET=$i make -j4 || make V=s && break; done"]
+#CMD ["cd /gluon && make update && for i in ar71xx-generic ar71xx-tiny; do GLUON_TARGET=$i make -j4 || make V=s && break; done"]
+CMD ["cd /gluon && make update && site/build.sh -y"]
