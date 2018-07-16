@@ -30,10 +30,6 @@ RUN git clone $GLUON_REPO gluon
 WORKDIR gluon
 RUN git checkout $GLUON_VERSION
 
-# COPY profiles.mk /gluon/targets/ar71xx-generic/profiles.mk
-COPY buildOnly.sh buildOnly.sh
-
-
 RUN git clone $FFMD_REPO site
 WORKDIR site
 RUN git checkout $FFMD_VERSION
