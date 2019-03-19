@@ -11,7 +11,7 @@ This section shows the commands that are needed to run a build with the Docker i
 
 Clone the repository:
 
-    git clone https://github.com/FreifunkMD/gluon-docker
+    git clone https://github.com/T0biii/gluon-docker.git
     cd gluon-docker/
     git checkout FFMUC-Test
 
