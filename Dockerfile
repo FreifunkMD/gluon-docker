@@ -1,10 +1,12 @@
 FROM gcc:7.2
 
-ARG FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
-ARG FFMD_VERSION=tags/v0.39
+#ARG FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
+#ARG FFMD_VERSION=tags/v0.39
+ARG FFMUC_REPO=https://github.com/freifunkMUC/site-ffm.git
+ARG FFMUC_VERSION=release-v2019.0
 ARG GLUON_REPO=git://github.com/freifunk-gluon/gluon.git
-ARG GLUON_VERSION=origin/v2016.2.x
-
+ARG GLUON_VERSION=v2016.2.x
+ARG BUILD_SH=https://raw.githubusercontent.com/FreifunkMD/site-ffmd/master/build.sh
 
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -30,9 +32,10 @@ RUN git clone $GLUON_REPO gluon
 WORKDIR gluon
 RUN git checkout $GLUON_VERSION
 
-RUN git clone $FFMD_REPO site
+RUN git clone $FFMUC_REPO site
 WORKDIR site
-RUN git checkout $FFMD_VERSION
+RUN git checkout $FFMUC_VERSION
+RUN wget $BUILD_SH
 
 WORKDIR /gluon
 RUN pwd
