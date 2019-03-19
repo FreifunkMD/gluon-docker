@@ -13,6 +13,7 @@ Clone the repository:
 
     git clone https://github.com/FreifunkMD/gluon-docker
     cd gluon-docker/
+    git checkout FFMUC-Test
 
 Use the following commands on the host to create and run the docker image:
 
