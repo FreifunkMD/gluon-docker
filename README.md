@@ -1,6 +1,6 @@
-# Freifunk Magdeburg Docker build image
+# Freifunk München Docker build image
 
-Docker image to build firmware for the [Freifunk Magdeburg](http://md.freifunk.net) community.
+Docker image to build firmware for the [Freifunk München](https://ffmuc.net) community.
 
 The build process is started automatically when the container is run. There is no need to manually run commands inside the container anymore.
 
