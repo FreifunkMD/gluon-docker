@@ -3,9 +3,9 @@ FROM gcc:7.2
 #ARG FFMD_REPO=https://github.com/FreifunkMD/site-ffmd.git
 #ARG FFMD_VERSION=tags/v0.39
 ARG FFMUC_REPO=https://github.com/freifunkMUC/site-ffm.git
-ARG FFMUC_VERSION=release-v2019.0
+ARG FFMUC_VERSION=stabel
 ARG GLUON_REPO=git://github.com/freifunk-gluon/gluon.git
-ARG GLUON_VERSION=v2016.2.x
+ARG GLUON_VERSION=v2018.2.2
 ARG BUILD_SH=https://raw.githubusercontent.com/FreifunkMD/site-ffmd/master/build.sh
 
 # Update & install packages & cleanup afterwards
