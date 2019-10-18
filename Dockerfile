@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get -y upgrade && \
     apt-get -y install \
         build-essential \
+        ecdsautils \
         gawk \
         git \
         libncurses-dev \
