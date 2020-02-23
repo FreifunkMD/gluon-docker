@@ -5,6 +5,9 @@ ARG FFMD_VERSION=tags/v0.40
 ARG GLUON_REPO=git://github.com/freifunk-gluon/gluon.git
 ARG GLUON_VERSION=origin/v2016.2.x
 
+# Apt-proxy config
+COPY detect-apt-proxy.sh /usr/local/bin/
+COPY 01proxy /etc/apt/apt.conf.d
 
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
