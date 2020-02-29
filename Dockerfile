@@ -21,6 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     rm -rf /var/lib/apt/lists/*
 
 COPY build.sh /
+RUN chmod +x build.sh
 
 ENV FORCE_UNSAFE_CONFIGURE=1
 
