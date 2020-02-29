@@ -1,11 +1,5 @@
 FROM gcc:9.2.0
 
-#ARG FFMUC_REPO=https://github.com/freifunkMUC/site-ffm.git
-ARG FFMUC_REPO=https://github.com/T0biii/site-ffm.git
-#ARG FFMUC_VERSION=stable
-ARG FFMUC_VERSION=T0biii-test-for-docker
-
-
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -26,13 +20,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone $FFMUC_REPO site-ffm
-WORKDIR site-ffm
-RUN git checkout -b patched && git checkout $FFMUC_VERSION
-
-RUN pwd
+COPY build.sh /
 
 ENV FORCE_UNSAFE_CONFIGURE=1
 
 ENTRYPOINT ["/bin/bash","-c"]
-CMD ["cd /site-ffm && make"]
+CMD ["./build.sh"]
