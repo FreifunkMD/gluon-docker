@@ -17,37 +17,37 @@ Clone the repository:
 
 Use the following commands on the host to create and run the docker image:
 
-    docker build -t ffmd-v2016.2.7 .
-    docker run -it --name ffmd ffmd-v2016.2.7
+    docker build -t ffmuc-v2020.1 .
+    docker run -it --name ffmc ffmuc-v2020.1 
 
 The container will automatically start the firmware build process.
 
 The build process can be configured with build arguments:
 
-    docker build --build-arg FFMD_VERSION=tags/v0.38-beta.1 -t ffmd-v2016.2.7 .
+    #docker build --build-arg FFMD_VERSION=tags/v0.38-beta.1 -t ffmuc-v2020.1 .
 
 To start the container with an arbitrary command, you can:
 
-	docker run -it --name ffmd ffmd-v2016.2.7 "/bin/bash"
+	docker run -it --name ffmc ffmuc-v2020.1 "/bin/bash"
 
 You can run a shell in an existing container with the following command:
 
-    docker exec -it ffmd /bin/bash
+    docker exec -it ffmc /bin/bash
 
 To restart the image once it has been stopped:
 
-    docker start -i ffmd
+    docker start -i ffmuc
 
 Once you are done, container and image can be deleted by calling
 
-    docker rm ffmd
-    docker rmi ffmd-v2017.2.7
+    docker rm ffmc
+    docker rmi ffmuc-v2020.1
 
 The build needs up to 60 GB of hard disk space. If the docker environment cannot provide the neccessary space, the paths `/gluon/output` and `/gluon/openwrt/build_dir` should be bound to a different directory:
 
-    docker run -it --name ffmd \
+    docker run -it --name ffmuc \
         -v "$(pwd)/firmwares:/gluon/output" \
         -v "$(pwd)/openwrt_build:/gluon/openwrt/build_dir" \
-        ffmd-v2016.2.7
+        ffmuc-v2020.1
 
 This will create and bind the directories `firmware` and `openwrt_build` in the current working directory to the container's output directories.
