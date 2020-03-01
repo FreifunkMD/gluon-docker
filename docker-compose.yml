@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    ffmuc:
+        build: .
+        container_name: ffmuc
+        volumes:
+            - './site-ffm:/site-ffm'
+        image: docker.pkg.github.com/t0biii/gluon-docker/ffmuc:t0biii-v0.0.2
