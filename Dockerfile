@@ -1,9 +1,5 @@
 FROM gcc:9.2.0
 
-# Apt-proxy config
-COPY detect-apt-proxy.sh /usr/local/bin/
-COPY 01proxy /etc/apt/apt.conf.d
-
 # Update & install packages & cleanup afterwards
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
