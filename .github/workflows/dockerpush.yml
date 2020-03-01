@@ -70,4 +70,6 @@ jobs:
           echo VERSION=$VERSION
 
           docker tag image $IMAGE_ID:$VERSION
+          echo TAG?
           docker push $IMAGE_ID:$VERSION
+          echo PUSH?
