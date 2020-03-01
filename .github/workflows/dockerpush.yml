@@ -66,9 +66,9 @@ jobs:
           # Use Docker `latest` tag convention
           [ "$VERSION" == "FFMUC-Test" ] && VERSION=latest
 
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-
+          echo IMAGE_ID=$(echo $IMAGE_ID | sed -e 's/\(.*\)/\L\1/')
+          echo VERSION=$(echo $VERSION | sed -e 's/\(.*\)/\L\1/')
+          
           docker tag image $IMAGE_ID:$VERSION
           echo TAG?
           docker push $IMAGE_ID:$VERSION
