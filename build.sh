@@ -1,5 +1,5 @@
-FFMUC_REPO=https://github.com/T0biii/site-ffm.git
-FFMUC_VERSION=T0biii-test-for-docker
+FFMUC_REPO=https://github.com/freifunkMUC/site-ffm.git
+FFMUC_VERSION=experimental
 
 git clone $FFMUC_REPO site-ffm
 cd site-ffm
