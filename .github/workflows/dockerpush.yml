@@ -69,8 +69,8 @@ jobs:
           IMAGE_ID=$(echo "$IMAGE_ID" | sed -e 's/\(.*\)/\L\1/')
           VERSION=$(echo "$VERSION" | sed -e 's/\(.*\)/\L\1/')
           
-          echo IMAGE_ID
-          echo VERSION
+          echo $IMAGE_ID
+          echo $VERSION
           docker tag image $IMAGE_ID:$VERSION
           echo TAG?
           docker push $IMAGE_ID:$VERSION
