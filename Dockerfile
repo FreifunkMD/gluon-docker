@@ -25,7 +25,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-
 COPY build.sh /
 
 ENV FORCE_UNSAFE_CONFIGURE=1
