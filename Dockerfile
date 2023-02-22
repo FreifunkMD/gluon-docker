@@ -39,6 +39,7 @@ WORKDIR site
 RUN git checkout $FFMD_VERSION
 # Patching build sh to fix discontinued way to references to sub module git repos
 RUN sed '157 i sed -i "s/git:/https:/g" modules' build.sh
+# remove recheckout of gluon repo inside of site/build.sh script
 RUN sed -i '148,150 d' build.sh
 
 WORKDIR /gluon
