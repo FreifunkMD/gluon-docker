@@ -37,6 +37,9 @@ RUN git checkout $GLUON_VERSION
 RUN git clone $FFMD_REPO site
 WORKDIR site
 RUN git checkout $FFMD_VERSION
+# Patching build sh to fix discontinued way to references to sub module git repos
+RUN sed '157 i sed -i "s/git:/https:/g" modules' build.sh
+RUN sed -i '148,150 d' build.sh
 
 WORKDIR /gluon
 RUN pwd
@@ -49,3 +52,4 @@ ENTRYPOINT ["/bin/bash","-c"]
 #CMD ["cd /gluon && make update && for i in ar71xx-generic ar72xx-tiny; do GLUON_TARGET=$i make -j4 || make V=s && break; done"]
 RUN sed -i "s/git:/https:/g" modules
 CMD ["cd /gluon && make update && site/build.sh -y"]
+# CMD ["cd /gluon && make update && GLUON_TARGET=ar71xx-generic make -j4"]
